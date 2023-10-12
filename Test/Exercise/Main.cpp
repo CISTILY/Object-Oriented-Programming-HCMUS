@@ -81,13 +81,4 @@ int main () {
     // Obj12.displayStudent();
     // return 0;
 
-    int n = 5;
-    for (int i = n; i >= 0; --i)
-    {
-        for (int k = n - i; i < 0; ++i)
-            cout << " ";
-        for (int j = i; j >= 0; --j)
-            cout << "*";
-        cout << endl;
-    }
 }

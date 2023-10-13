@@ -8,18 +8,16 @@ struct Point {
     float y;
 };
 
-float calcDistanceOfTwoPoints (Point a, Point b) {
+double calcDistanceOfTwoPoints (Point a, Point b) {
     return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2));
 }
 
-bool abc () {
-    return 10 + 40 == 50;
-}
-
 bool test (Point a, Point b, Point c) {
-    return (int)pow(calcDistanceOfTwoPoints(a, b), 2) + (int)pow(calcDistanceOfTwoPoints(a, c), 2) == (int)pow(calcDistanceOfTwoPoints(b, c), 2)
-          || (int)pow(calcDistanceOfTwoPoints(a, b), 2) + (int)pow(calcDistanceOfTwoPoints(b, c), 2) == (int)pow(calcDistanceOfTwoPoints(a, c), 2)
-          || (int)pow(calcDistanceOfTwoPoints(b, c), 2) + (int)pow(calcDistanceOfTwoPoints(a, c), 2) == (int)pow(calcDistanceOfTwoPoints(a, c), 2);
+    int A = pow(calcDistanceOfTwoPoints(a, b), 2);
+    int B = (int)pow(calcDistanceOfTwoPoints(a, c), 2);
+    int C = (int)pow(calcDistanceOfTwoPoints(b, c), 2);
+    cout << A << " " << B << " " << C;
+    return ((A > 0 && B > 0 && C > 0) && ((A + B) == C || (A + C) == B || (B + C) == A));
 }
 
 int main () {
@@ -31,6 +29,5 @@ int main () {
     cout << pow(calcDistanceOfTwoPoints(a, c), 2) << endl;
     cout << pow(calcDistanceOfTwoPoints(b, c), 2) << endl;
     cout << test(a, b, c);
-    cout << abc();
     return 0;
 }

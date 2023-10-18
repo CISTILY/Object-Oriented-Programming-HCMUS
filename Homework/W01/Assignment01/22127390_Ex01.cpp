@@ -35,6 +35,7 @@ int main () {
                 break;
             case 2:
                 cout << "--- Print Fraction ---" << endl;
+                obj1.reduceFraction();
                 obj1.printFraction();
                 break;
             case 3:

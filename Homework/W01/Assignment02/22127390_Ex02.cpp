@@ -32,73 +32,72 @@ int main () {
                 break;
             case 1: 
                 cout << "--- Input Point ---" << endl;
-                inputPoint(P_obj1);
+                P_obj1.inputPoint();
                 break;
             case 2:
                 cout << "--- Ouput Point ---" << endl;
-                printPoint(P_obj1);
+                P_obj1.printPoint();
                 break;
             case 3:
                 cout << "--- Calculate Distance from point A to point B ---" << endl;
-                inputPoint(P_obj1);
-                printPoint(P_obj1);
-                inputPoint(P_obj2);
-                printPoint(P_obj2);
-                cout << "Result: " << calcDistanceOfTwoPoints(P_obj1, P_obj2) << endl;
+                P_obj1.inputPoint();
+                P_obj1.printPoint();
+                P_obj2.inputPoint();
+                P_obj2.printPoint();
+                cout << fixed << setprecision(2) << "Result: " << P_obj1.calcDistanceOfTwoPoints(P_obj1, P_obj2) << endl;
                 break;
             case 4:
                 cout << "--- Distance to Ox ---" << endl;
-                inputPoint(P_obj1);
-                printPoint(P_obj1);
-                cout << "Result: " << calcDistanceToOx(P_obj1) << endl;
+                P_obj1.inputPoint();
+                P_obj1.printPoint();
+                cout << fixed << setprecision(2) << "Result: " << P_obj1.calcDistanceToOx() << endl;
                 break;
             case 5:
                 cout << "--- Distance to Oy ---" << endl;
-                inputPoint(P_obj1);
-                printPoint(P_obj1);
-                cout << "Result: " << calcDistanceToOy(P_obj1) << endl;
+                P_obj1.inputPoint();
+                P_obj1.printPoint();
+                cout << fixed << setprecision(2) << "Result: " << P_obj1.calcDistanceToOy() << endl;
                 break;
             case 6:
                 cout << "--- Input Triangle ---" << endl;
-                inputTriangle(T_obj);
+                T_obj.inputTriangle();
                 break;
             case 7:
                 cout << "--- Print Triangle ---" << endl;
-                printTriangle(T_obj);
+                T_obj.printTriangle();
                 break;
             case 8:
                 cout << "--- Check if a Triangle is valid ---" << endl;
-                inputTriangle(T_obj);
-                printTriangle(T_obj);
-                if (isValidTriangle(T_obj))
+                T_obj.inputTriangle();
+                T_obj.printTriangle();
+                if (T_obj.isValidTriangle())
                     cout << "Answer: This Triangle is valid" << endl;
-                else
-                    cout << "Answer: This Triangle is not valid" << endl;
                 break;
             case 9:
                 cout << "--- Type of a triangle ---" << endl;
-                inputTriangle(T_obj);
-                printTriangle(T_obj);
-                findTypeOfTriangle(T_obj);
+                T_obj.inputTriangle();
+                T_obj.printTriangle();
+                T_obj.findTypeOfTriangle();
                 break;
             case 10:
                 cout << "--- Calculate Triangle's Perimeter ---" << endl;
-                inputTriangle(T_obj);
-                printTriangle(T_obj);
-                cout << "Result: " << calcPerimeter(T_obj) << endl;
+                T_obj.inputTriangle();
+                T_obj.printTriangle();
+                cout << fixed << setprecision(2) << "Result: " << T_obj.calcPerimeter() << endl;
                 break;
             case 11:
                 cout << "--- Calculate Triangle's Area ---" << endl;
-                inputTriangle(T_obj);
-                printTriangle(T_obj);
-                cout << "Result: " << calcArea(T_obj) << endl;
+                T_obj.inputTriangle();
+                T_obj.printTriangle();
+                cout << fixed << setprecision(2) << "Result: " << T_obj.calcArea() << endl;
                 break;
             case 12:
                 cout << "--- Find center G ---" << endl;
-                inputTriangle(T_obj);
-                printTriangle(T_obj);
-                result = findCenterG(T_obj);
-                printPoint(result);
+                T_obj.inputTriangle();
+                T_obj.printTriangle();
+                result = T_obj.findCenterG();
+                cout << "G ";
+                result.printPoint();
                 break;
             default:
                 cout << "Invalid key" << endl;

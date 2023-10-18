@@ -14,8 +14,8 @@ double calcDistanceOfTwoPoints (Point a, Point b) {
 
 bool test (Point a, Point b, Point c) {
     int A = pow(calcDistanceOfTwoPoints(a, b), 2);
-    int B = (int)pow(calcDistanceOfTwoPoints(a, c), 2);
-    int C = (int)pow(calcDistanceOfTwoPoints(b, c), 2);
+    int B = pow(calcDistanceOfTwoPoints(a, c), 2);
+    int C = pow(calcDistanceOfTwoPoints(b, c), 2);
     cout << A << " " << B << " " << C;
     return ((A > 0 && B > 0 && C > 0) && ((A + B) == C || (A + C) == B || (B + C) == A));
 }

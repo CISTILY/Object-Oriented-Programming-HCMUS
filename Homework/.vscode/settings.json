@@ -55,17 +55,5 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "files.associations": {
-    "iostream": "cpp",
-    "ostream": "cpp",
-    "cmath": "cpp",
-    "*.tcc": "cpp",
-    "algorithm": "cpp",
-    "deque": "cpp",
-    "string": "cpp",
-    "unordered_map": "cpp",
-    "vector": "cpp",
-    "system_error": "cpp"
-  }
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }

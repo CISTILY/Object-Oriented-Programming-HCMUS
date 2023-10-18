@@ -4,6 +4,7 @@ using namespace std;
 
 int main () {
     LinkedListQueue a;
+    initLinkedList(0, a);
     int choice, capacity, value;
     cout << "==== Queue / LinkedList operation ====" << endl;
     cout << "1. Init Queue" << endl;
@@ -18,7 +19,7 @@ int main () {
     do {
         cout << "==========================" << endl;
         cout << "Your choice: ";
-        cin >> choice; 
+        cin >> choice;
         cout << "==========================" << endl;
         switch (choice) {
             case 0:

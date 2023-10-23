@@ -48,9 +48,6 @@ void Triangle::inputTriangle () {
 
 void Triangle::printTriangle () {
 
-    // cout << "Triangle's coordinates: A(" << this->A.printPoint()  << ", " << this->A.y << ") " 
-    //                              << "B(" << this->B.x  << ", " << this->B.y << ") " 
-    //                              << "C(" << this->C.x  << ", " << this->C.y << ")" << endl;
     cout << "Triangle's coordinates:" << endl;
     cout << "A "; this->A.printPoint();
     cout << "B "; this->B.printPoint();

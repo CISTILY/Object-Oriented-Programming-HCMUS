@@ -1,4 +1,4 @@
-#include "Function.h"
+#include "Fraction.h"
 
 using namespace std;
 

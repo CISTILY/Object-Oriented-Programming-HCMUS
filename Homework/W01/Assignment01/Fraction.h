@@ -1,5 +1,5 @@
-#ifndef FUNCTION_H_
-#define FUNCTION_H_
+#ifndef FRACTION_H_
+#define FRACTION_H_
 
 #include <iostream>
 #include <math.h>
@@ -24,4 +24,4 @@ class Fraction {
         bool isZero ();                                     // Check if the given Fraction is Zero
 };
 
-#endif // FUNCTION_H_
+#endif

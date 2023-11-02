@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Test/CodeTest",
-      "program": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Test/CodeTest/build/Debug/outDebug",
+      "cwd": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Test/SVG",
+      "program": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Test/SVG/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

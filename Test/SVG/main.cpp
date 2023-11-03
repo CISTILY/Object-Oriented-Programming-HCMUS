@@ -4,6 +4,8 @@
 #include "Rect.h"
 #include "Circle.h"
 #include "Text.h"
+#include "Ellipse.h"
+#include "Line.h"
 #include <iostream>
 #include <windows.h>
 #include <objidl.h>
@@ -52,22 +54,35 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, PSTR, INT iCmdShow)
         char* attributeValue = Attr->value();
         PropertiesBuilder(nodeName, attributeName, attributeValue, a, name, value);
     }
-    if (strstr(nodeName, "rect") != NULL) {
+    string temp = nodeName;
+    if (temp == "rect") {
         Square obj;
         obj.buildShape(name, value, a);
         obj.print();
     }
-    else if (strstr(nodeName, "circle") != NULL) {
+    else if (temp == "circle") {
         CircleSVG obj;
         obj.buildShape(name, value, a);
         obj.print();
     }
 
-    else if (strstr(nodeName, "text") != NULL) {
+    else if (temp == "text") {
         TextSVG obj;
         obj.buildText(name, value, content[i], a);
         obj.print();
         i++;
+    }
+
+    else if (temp == "line") {
+        LineSVG obj;
+        obj.buildLine(name, value, a);
+        obj.print();
+    }
+
+    else if (temp == "ellipse") {
+        EllipseSVG obj;
+        obj.buildEllipse(name, value, a);
+        obj.print();
     }
 
     cout << endl;

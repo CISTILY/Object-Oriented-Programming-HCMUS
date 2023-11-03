@@ -15,17 +15,32 @@ class Fraction {
         ~Fraction();
         Fraction(const Fraction&);
         Fraction (int, int);
-        Fraction &operator= (const Fraction&);
+
         friend Fraction operator+ (const Fraction &, const Fraction &);
         friend Fraction operator- (const Fraction &, const Fraction &);
         friend Fraction operator* (const Fraction &, const Fraction &);
         friend Fraction operator/ (const Fraction &, const Fraction &);
+
         friend bool operator== (const Fraction &, const Fraction &);
         friend bool operator!= (const Fraction &, const Fraction &);
         friend bool operator>= (const Fraction &, const Fraction &);
         friend bool operator> (const Fraction &, const Fraction &);
         friend bool operator<= (const Fraction &, const Fraction &);
         friend bool operator< (const Fraction &, const Fraction &);
+        friend Fraction operator+ (const Fraction &, int);
+        friend Fraction operator+ (int, const Fraction &);
+        friend Fraction operator* (int, const Fraction &);
+        friend Fraction operator- (const Fraction &, int);
+        friend ostream& operator<< (ostream&, Fraction &);
+        Fraction& operator+= (const Fraction & obj);
+        Fraction& operator-= (const Fraction & obj);
+        Fraction& operator*= (const Fraction & obj);
+        Fraction& operator/= (const Fraction & obj);
+        Fraction& operator++ ();
+        Fraction& operator++ (int);
+        Fraction& operator-- ();
+        Fraction& operator-- (int);
+        //float operator() (Fraction obj) const;
 };
 
 #endif

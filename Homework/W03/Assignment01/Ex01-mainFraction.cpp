@@ -24,26 +24,26 @@ int main()
 	cout<<(f5<f3) << endl;
 
 
-	// f1=f2+3;
-	// f3=-7+f1;
-	// f5=7*f3;
-	// f6=f4-6;
+	f1=f2+3;
+	f3=-7+f1;
+	f5=7*f3;
+	f6=f4-6;
 	
-	// cout<<f3;
-	// cout<<f6;
+	cout<<f3;
+	cout<<f6;
 
-	// f1+=f5;
-	// f6-=f7;
-	// f8*=f1;
-	// f8/=f2;
+	f1+=f5;
+	f6-=f7;
+	f8*=f1;
+	f8/=f2;
 
-	// cout<<f8++;
-	// cout<<++f7;
+	cout<<f8++;
+	cout<<++f7;
 	
-	// cout<<f8--;
-	// cout<<--f7;
+	cout<<f8--;
+	cout<<--f7;
 	
-	// float f=(float)f3;				// 3/2 => 1.5
+	//float f=(float)f3;				// 3/2 => 1.5
 
 	return 0;
 }

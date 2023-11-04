@@ -9,6 +9,7 @@ private:
 	int y;
 public:
 	Point2D();
+	Point2D(string);
 	~Point2D();
 
 	void setX(int);

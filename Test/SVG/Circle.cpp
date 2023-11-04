@@ -3,14 +3,15 @@
 using namespace std;
 
 CircleSVG::CircleSVG() {
-    cout << "Circle::Constructor" << endl;
+    Shape();
+    cout << "Circle::Default Constructor" << endl;
 }
 
 CircleSVG::~CircleSVG() {
     cout << "Cricle::Destructor" << endl;
 }
 
-/////////////////// buildShape function ///////////////////////
+/////////////////// CircleSVG Constructor ///////////////////////
 /*
 * Input parameters: 
 + vector<char*> contains vector of Attribute Name
@@ -25,29 +26,29 @@ CircleSVG::~CircleSVG() {
 * Output:
 + CricleSVG variable with correct properties from "sample.svg"
 */
-///////////////////////////////////////////////////////////////
-void CircleSVG::buildShape(vector<char*> name, vector<char*> value, Properties circle) {
+/////////////////////////////////////////////////////////////////
+void CircleSVG::buildCircle(vector<char*> name, vector<char*> value, Properties circle) {
     string temp;                                      
     for (int i = 0; i < name.size(); ++i) {
         temp = name[i];                                     // Type cast from char* to string
         if (temp == "cx")                                   
-            this->center.setX(atoi(value[i]));              // Set center x if temp = "cx"
+            this->coordinate.setX(atoi(value[i]));          // Set center x if temp = "cx"
         else if (temp == "cy")                      
-            this->center.setY(atoi(value[i]));              // Set center y if temp = "cy"
+            this->coordinate.setY(atoi(value[i]));          // Set center y if temp = "cy"
         else if (temp == "r")
             this->setRadius(atoi(value[i]));                // Set radius r if temp = "r"
     }
-    this->circle = circle;                                  // Set Properties of the shape
+    this->shape = circle;                                   // Set Properties for the circle
 }
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 
 
 void CircleSVG::print() {
-    center.print();
-    cout << " " << this->radius << " ";
-    circle.print();
+    this->coordinate.print();
+    cout << " " << this->rx << " ";
+    this->shape.print();
 }
 
 void CircleSVG::setRadius(int r) {
-    this->radius = r;
+    this->rx = r;
 }

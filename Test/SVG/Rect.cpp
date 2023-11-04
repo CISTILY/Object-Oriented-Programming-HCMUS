@@ -1,27 +1,27 @@
 #include "Rect.h"
 
 Square::Square() {
-    cout << "Rectangle::Constructor" << endl;
+    cout << "Rectangle::Default Constructor" << endl;
 }
 
 Square::~Square() {
     cout << "Rectangle::Destructor" << endl;
 }
 
-void Square::buildShape(vector<char*> name, vector<char*> value, Properties rect) {
+void Square::buildRect(vector<char*> name, vector<char*> value, Properties rect) {
     string temp;
     for (int i = 0; i < name.size(); ++i) {
         temp = name[i];
         if (temp == "x")
-            this->p.setX(atoi(value[i]));
+            this->coordinate.setX(atoi(value[i]));
         else if (temp == "y")
-            this->p.setY(atoi(value[i]));
+            this->coordinate.setY(atoi(value[i]));
         else if (temp == "width")
             this->setWidth(atoi(value[i]));
         else if (temp == "height")
             this->setHeight(atoi(value[i]));
     }
-    this->effect = rect;
+    this->shape = rect;
 }
 
 void Square::setWidth(int w) {
@@ -33,7 +33,7 @@ void Square::setHeight(int h) {
 }
 
 void Square::print() {
-    p.print();
+    coordinate.print();
     cout << " " << this->width << " " << this->height << " ";
-    effect.print();
+    shape.print();
 }

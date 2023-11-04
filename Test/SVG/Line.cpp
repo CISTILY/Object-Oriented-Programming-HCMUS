@@ -15,21 +15,21 @@ void LineSVG::buildLine (vector<char*> name, vector<char*> value, Properties lin
     for (int i = 0; i < name.size(); ++i) {
         temp = name[i];
         if (temp == "x1") 
-            this->begin.setX(atoi(value[i]));
+            this->coordinate.setX(atoi(value[i]));
         else if (temp == "y1") 
-            this->begin.setY(atoi(value[i]));
+            this->coordinate.setY(atoi(value[i]));
         else if (temp == "x2")
             this->end.setX(atoi(value[i]));
         else if (temp == "y2")
             this->end.setY(atoi(value[i]));
     }
-    this->line = line;
+    this->shape = line;
 }
 
 void LineSVG::print() {
-    this->begin.print();
+    this->coordinate.print();
     cout << " ";
     this->end.print();
     cout << " ";
-    this->line.print();
+    this->shape.print();
 }

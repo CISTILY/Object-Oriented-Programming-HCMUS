@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Homework/W02/Assignment04",
-      "program": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Homework/W02/Assignment04/build/Debug/outDebug",
+      "cwd": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Homework/W03/Assignment01",
+      "program": "c:/Users/admin/Documents/GitHub/Object-Oriented-Programming-HCMUS/Homework/W03/Assignment01/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

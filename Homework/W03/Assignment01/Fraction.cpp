@@ -31,46 +31,52 @@ Fraction::Fraction(int a, int b) {
     cout << "Fraction::Double parameters Constructor" << endl;
 }
 
-Fraction operator+ (const Fraction& obj1, const Fraction& obj2) {
+Fraction& Fraction::operator= (const Fraction& obj1) {
+    this->Numerator = obj1.Numerator;
+    this->Denominator = obj1.Denominator;
+    return *this;
+}
+
+Fraction Fraction::operator+ (const Fraction& obj1) {
     Fraction result;
-    if (obj1.Denominator == obj2.Denominator) {
-        result.Numerator = obj1.Numerator + obj2.Numerator;
+    if (obj1.Denominator == this->Denominator) {
+        result.Numerator = obj1.Numerator + this->Numerator;
         result.Denominator = obj1.Denominator;
     }
 
     else {
-        result.Denominator = obj1.Denominator*obj2.Denominator;
-        result.Numerator = obj1.Numerator*obj2.Denominator + obj2.Numerator*obj1.Denominator;
+        result.Denominator = obj1.Denominator*this->Denominator;
+        result.Numerator = obj1.Numerator*this->Denominator + this->Numerator*obj1.Denominator;
     }
     return result;
 }
 
-Fraction operator- (const Fraction & obj1, const Fraction & obj2) {
+Fraction Fraction::operator- (const Fraction & obj1) {
     Fraction result;
-    if (obj1.Denominator == obj2.Denominator) {
-        result.Numerator = obj1.Numerator - obj2.Numerator;
+    if (obj1.Denominator == this->Denominator) {
+        result.Numerator = this->Numerator - obj1.Numerator;
         result.Denominator = obj1.Denominator;
     }
 
     else {
-        result.Denominator = obj1.Denominator*obj2.Denominator;
-        result.Numerator = obj1.Numerator*obj2.Denominator - obj2.Numerator*obj1.Denominator;
+        result.Denominator = obj1.Denominator*this->Denominator;
+        result.Numerator = this->Numerator*obj1.Denominator - obj1.Numerator*this->Denominator;
     }
     return result;
 }
 
-Fraction operator* (const Fraction & obj1, const Fraction & obj2) {
+Fraction Fraction::operator* (const Fraction & obj1) {
     Fraction result;
-    result.Numerator = obj1.Numerator*obj2.Numerator;
-    result.Denominator = obj1.Denominator*obj2.Denominator;
+    result.Numerator = obj1.Numerator*this->Numerator;
+    result.Denominator = obj1.Denominator*this->Denominator;
     return result;
 }
 
-Fraction operator/ (const Fraction & obj1, const Fraction & obj2) {
+Fraction Fraction::operator/ (const Fraction & obj1) {
     Fraction result;
-    if (obj2.Numerator != 0) {
-        result.Numerator = obj1.Numerator * obj2.Denominator;
-        result.Denominator = obj1.Denominator * obj2.Numerator;
+    if (obj1.Numerator != 0) {
+        result.Numerator = this->Numerator * obj1.Denominator;
+        result.Denominator = this->Denominator * obj1.Numerator;
     }
     else {
         result.Denominator = 0;
@@ -79,31 +85,30 @@ Fraction operator/ (const Fraction & obj1, const Fraction & obj2) {
     return result;
 }
 
-bool operator== (const Fraction & obj1, const Fraction & obj2) {
-    if (obj1.Denominator == obj2.Denominator && obj2.Numerator == obj1.Numerator)
+bool Fraction::operator== (const Fraction & obj1) {
+    if (obj1.Denominator == this->Denominator && this->Numerator == obj1.Numerator)
         return true;
-    else 
-        return false;
+    return false;
 }
 
-bool operator!= (const Fraction & obj1, const Fraction & obj2) {
-    return !(obj1 == obj2);
+bool Fraction::operator!= (const Fraction & obj1) {
+    return !(*this == obj1);
 }
 
-bool operator>= (const Fraction & obj1, const Fraction & obj2) {
-    return ((obj1.Numerator * obj2.Denominator) >= (obj1.Denominator * obj2.Numerator));
+bool Fraction::operator>= (const Fraction & obj1) {
+    return ((obj1.Numerator * this->Denominator) >= (obj1.Denominator * this->Numerator));
 }
 
-bool operator> (const Fraction & obj1, const Fraction & obj2) {
-    return ((obj1.Numerator * obj2.Denominator) > (obj1.Denominator * obj2.Numerator));
+bool Fraction::operator> (const Fraction & obj1) {
+    return ((obj1.Numerator * this->Denominator) > (obj1.Denominator * this->Numerator));
 }
 
-bool operator<= (const Fraction & obj1, const Fraction & obj2) {
-    return ((obj1.Numerator * obj2.Denominator) <= (obj1.Denominator * obj2.Numerator));
+bool Fraction::operator<= (const Fraction & obj1) {
+    return ((obj1.Numerator * this->Denominator) <= (obj1.Denominator * this->Numerator));
 }
 
-bool operator< (const Fraction & obj1, const Fraction & obj2) {
-    return ((obj1.Numerator * obj2.Denominator) < (obj1.Denominator * obj2.Numerator));
+bool Fraction::operator< (const Fraction & obj1) {
+    return ((obj1.Numerator * this->Denominator) < (obj1.Denominator * this->Numerator));
 }
 
 Fraction operator+ (const Fraction & obj1, int b) {
@@ -134,8 +139,8 @@ Fraction operator- (const Fraction & obj1, int b) {
     return result;
 }
 
-ostream& operator<< (ostream& out, Fraction & obj) {
-    out << obj.Numerator << " / " << obj.Denominator;
+ostream& operator<< (ostream& out, const Fraction & obj) {
+    out << obj.Numerator << "/" << obj.Denominator;
     return out;
 }
 
@@ -181,23 +186,27 @@ Fraction& Fraction::operator/= (const Fraction & obj) {
 
 
 Fraction& Fraction::operator++ () {
-    *this + 1;
+    *this = *this + 1;
     return *this;
 }
 
-Fraction& Fraction::operator++ (int) {
+Fraction Fraction::operator++ (int) {
     Fraction old = *this;
-    operator++();
+    ++*this;
     return old;
 }
 
 Fraction& Fraction::operator-- () {
-    *this - 1;
+    *this = *this - 1;
     return *this;
 }
 
-Fraction& Fraction::operator-- (int) {
+Fraction Fraction::operator-- (int) {
     Fraction old = *this;
-    operator--();
-    return *this;
+    --*this;
+    return old;
+}
+
+Fraction::operator float() const {
+    return (float)this->Numerator/this->Denominator;
 }

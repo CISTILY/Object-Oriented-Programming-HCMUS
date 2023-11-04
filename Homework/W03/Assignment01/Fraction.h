@@ -16,31 +16,38 @@ class Fraction {
         Fraction(const Fraction&);
         Fraction (int, int);
 
-        friend Fraction operator+ (const Fraction &, const Fraction &);
-        friend Fraction operator- (const Fraction &, const Fraction &);
-        friend Fraction operator* (const Fraction &, const Fraction &);
-        friend Fraction operator/ (const Fraction &, const Fraction &);
+        Fraction& operator= (const Fraction &);
 
-        friend bool operator== (const Fraction &, const Fraction &);
-        friend bool operator!= (const Fraction &, const Fraction &);
-        friend bool operator>= (const Fraction &, const Fraction &);
-        friend bool operator> (const Fraction &, const Fraction &);
-        friend bool operator<= (const Fraction &, const Fraction &);
-        friend bool operator< (const Fraction &, const Fraction &);
-        friend Fraction operator+ (const Fraction &, int);
+        Fraction operator+ (const Fraction &);
+        Fraction operator- (const Fraction &);
+        Fraction operator* (const Fraction &);
+        Fraction operator/ (const Fraction &);
+
+        bool operator== (const Fraction &);
+        bool operator!= (const Fraction &);
+        bool operator>= (const Fraction &);
+        bool operator> (const Fraction &);
+        bool operator<= (const Fraction &);
+        bool operator< (const Fraction &);
+
         friend Fraction operator+ (int, const Fraction &);
+        friend Fraction operator+ (const Fraction &, int);
         friend Fraction operator* (int, const Fraction &);
         friend Fraction operator- (const Fraction &, int);
-        friend ostream& operator<< (ostream&, Fraction &);
+
+        friend ostream& operator<< (ostream&, const Fraction &);
+
         Fraction& operator+= (const Fraction & obj);
         Fraction& operator-= (const Fraction & obj);
         Fraction& operator*= (const Fraction & obj);
         Fraction& operator/= (const Fraction & obj);
+
         Fraction& operator++ ();
-        Fraction& operator++ (int);
+        Fraction operator++ (int);
+
         Fraction& operator-- ();
-        Fraction& operator-- (int);
-        //float operator() (Fraction obj) const;
+        Fraction operator-- (int);
+        operator float () const; 
 };
 
 #endif

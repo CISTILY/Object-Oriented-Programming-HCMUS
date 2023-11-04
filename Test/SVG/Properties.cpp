@@ -50,5 +50,6 @@ void Properties::buildProperties(vector<char*> name, vector<char*> value) {
 ///////////////////////////////////////////////////////////////
 
 void Properties::print() {
-    cout << this->stroke << " " << this->stroke_opacity << " " << this->stroke_width << " " << this->fill << " " << this->fill_opacity << endl;
+    cout << "(fill-opacity: " << this->fill_opacity << "), (fill: " << this->fill 
+         << "), (stroke: " << this->stroke << "), (stroke-width: " << this->stroke_width << "), (stroke-opacity:" << this->stroke_opacity << ")" << endl;
 }

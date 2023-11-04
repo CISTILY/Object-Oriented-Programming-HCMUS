@@ -1,17 +1,14 @@
 #pragma once
-#include "Point2D.h"
-#include "Properties.h"
+#include "Shape.h"
 
-class Square : public Properties {
+class Square : public Shape {
 private:
-	Point2D p;
 	int width, height;
-	Properties effect;
 public:
 	Square();
 	~Square();
 
-	void buildShape (vector<char*>, vector<char*>, Properties);
+	void buildRect (vector<char*>, vector<char*>, Properties);
 	void setWidth (int);
 	void setHeight (int);
 	void print ();

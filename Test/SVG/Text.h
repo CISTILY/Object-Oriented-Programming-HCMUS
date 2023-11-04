@@ -1,17 +1,14 @@
-#include "Properties.h"
-#include "Point2D.h"
+#include "Shape.h"
 
-class TextSVG {
+class TextSVG : public Shape{
     private:
-        Point2D p;
-        Properties text;
         int font_size;
         string content;
     public:
         TextSVG();
         ~TextSVG();
 
-        void buildText (vector<char*>, vector<char*>, string, Properties);
+        void buildText(vector<char*>, vector<char*>, string, Properties);
         void setFontSize (int);
         void print ();
 };

@@ -1,17 +1,14 @@
-#include "Properties.h"
-#include "Point2D.h"
+#include "Shape.h"
 
 using namespace std;
 
-class LineSVG {
+class LineSVG : public Shape{
     private:
-        Point2D begin;
         Point2D end;
-        Properties line;
     public:
         LineSVG();
         ~LineSVG();
 
-        void buildLine (vector<char*>, vector<char*>, Properties);
+        void buildLine(vector<char*>, vector<char*>, Properties);
         void print ();
 };

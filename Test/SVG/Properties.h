@@ -4,12 +4,13 @@
 
 using namespace std;
 
-class Properties {
+
+class Properties : public Color {
 private:
-	string stroke;
+	Color stroke;
 	int stroke_width;
 	double stroke_opacity;
-	string fill;
+	Color fill;
 	double fill_opacity;
 public:
 	Properties();

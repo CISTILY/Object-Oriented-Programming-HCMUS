@@ -2,8 +2,7 @@
 
 using namespace std;
 
-void Renderer::printShapeInfo(char* name, SVGReader reader, Properties a) {
-    int i = 0;
+void Renderer::printShapeInfo(char* name, SVGReader reader, Properties a, int& i) {
     string temp = name;
     if (temp == "rect") {
         this->rect.buildRect(reader.getOtherAttrName(), reader.getOtherAttrValue(), a);

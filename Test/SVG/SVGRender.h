@@ -20,6 +20,6 @@ class Renderer {
         PolylineSVG polyline;
         TextSVG text;
     public:
-        void printShapeInfo (char*, SVGReader, Properties);
+        void printShapeInfo (char*, SVGReader, Properties, int&);
         // void drawShape ();
 };

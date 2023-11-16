@@ -48,6 +48,9 @@ Fraction Fraction::operator+ (const Fraction& obj1) {
         result.Denominator = obj1.Denominator*this->Denominator;
         result.Numerator = obj1.Numerator*this->Denominator + this->Numerator*obj1.Denominator;
     }
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -62,6 +65,9 @@ Fraction Fraction::operator- (const Fraction & obj1) {
         result.Denominator = obj1.Denominator*this->Denominator;
         result.Numerator = this->Numerator*obj1.Denominator - obj1.Numerator*this->Denominator;
     }
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -69,6 +75,7 @@ Fraction Fraction::operator* (const Fraction & obj1) {
     Fraction result;
     result.Numerator = obj1.Numerator*this->Numerator;
     result.Denominator = obj1.Denominator*this->Denominator;
+    result.reduceFraction();
     return result;
 }
 
@@ -82,6 +89,9 @@ Fraction Fraction::operator/ (const Fraction & obj1) {
         result.Denominator = 0;
         result.Numerator = 0;
     }
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -96,25 +106,28 @@ bool Fraction::operator!= (const Fraction & obj1) {
 }
 
 bool Fraction::operator>= (const Fraction & obj1) {
-    return ((obj1.Numerator * this->Denominator) >= (obj1.Denominator * this->Numerator));
+    return ((obj1.Denominator * this->Numerator) >= (obj1.Numerator * this->Denominator));
 }
 
 bool Fraction::operator> (const Fraction & obj1) {
-    return ((obj1.Numerator * this->Denominator) > (obj1.Denominator * this->Numerator));
+    return ((obj1.Denominator * this->Numerator) > (obj1.Numerator * this->Denominator));
 }
 
 bool Fraction::operator<= (const Fraction & obj1) {
-    return ((obj1.Numerator * this->Denominator) <= (obj1.Denominator * this->Numerator));
+    return ((obj1.Denominator * this->Numerator) <= (obj1.Numerator * this->Denominator));
 }
 
 bool Fraction::operator< (const Fraction & obj1) {
-    return ((obj1.Numerator * this->Denominator) < (obj1.Denominator * this->Numerator));
+    return ((obj1.Denominator * this->Numerator) < (obj1.Numerator * this->Denominator));
 }
 
 Fraction operator+ (const Fraction & obj1, int b) {
     Fraction result;
     result.Numerator = obj1.Numerator + (obj1.Denominator * b);
     result.Denominator = obj1.Denominator;
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -122,6 +135,9 @@ Fraction operator+ (int b, const Fraction & obj1) {
     Fraction result;
     result.Numerator = (obj1.Denominator * b) + obj1.Numerator;
     result.Denominator = obj1.Denominator;
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -129,6 +145,7 @@ Fraction operator* (int b, const Fraction & obj1) {
     Fraction result;
     result.Numerator = obj1.Numerator * b;
     result.Denominator = obj1.Denominator;
+    result.reduceFraction();
     return result;
 }
 
@@ -136,6 +153,9 @@ Fraction operator- (const Fraction & obj1, int b) {
     Fraction result;
     result.Numerator = obj1.Numerator - (obj1.Denominator * b);
     result.Denominator = obj1.Denominator;
+
+    result.reduceFraction();
+
     return result;
 }
 
@@ -152,6 +172,9 @@ Fraction& Fraction::operator+= (const Fraction & obj) {
         this->Numerator = obj.Numerator* this->Denominator + obj.Denominator* this->Numerator;
         this->Denominator = this->Denominator * obj.Denominator;
     }
+
+    this->reduceFraction();
+
     return *this;
 }
 
@@ -160,15 +183,19 @@ Fraction& Fraction::operator-= (const Fraction & obj) {
         this->Numerator = this->Numerator - obj.Numerator;
     }
     else {
-        this->Numerator = obj.Numerator* this->Denominator - obj.Denominator* this->Numerator;
+        this->Numerator = obj.Denominator* this->Numerator - obj.Numerator* this->Denominator;
         this->Denominator = this->Denominator * obj.Denominator;
     }
+
+    this->reduceFraction();
+
     return *this;
 }
 
 Fraction& Fraction::operator*= (const Fraction & obj) {
     this->Numerator = this->Numerator* obj.Numerator;
     this->Denominator = this->Denominator*obj.Denominator;
+    this->reduceFraction();
     return *this;
 }
 
@@ -181,6 +208,9 @@ Fraction& Fraction::operator/= (const Fraction & obj) {
         this->Numerator = 0;
         this->Denominator = 0;
     }
+
+    this->reduceFraction();
+
     return *this;
 }
 
@@ -209,4 +239,21 @@ Fraction Fraction::operator-- (int) {
 
 Fraction::operator float() const {
     return (float)this->Numerator/this->Denominator;
+}
+
+void Fraction::reduceFraction () {
+
+    for (int i = abs(this->Numerator); i > 0; --i)
+        if (this->Numerator % i == 0 && this->Denominator % i == 0)
+        {
+            this->Numerator = this->Numerator / i;
+            this->Denominator = this->Denominator / i;
+            break;
+        }
+        
+    if ((this->Numerator < 0 && this->Denominator < 0) || (this->Numerator > 0 && this->Denominator < 0))
+    {
+        this->Numerator =- this->Numerator;
+        this->Denominator =- this->Denominator;
+    }
 }

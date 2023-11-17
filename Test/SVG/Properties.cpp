@@ -36,15 +36,15 @@ void Properties::buildProperties(vector<char*> name, vector<char*> value) {
     for (int i = 0; i < name.size(); ++i) {
         temp = name[i];
         if (temp == "stroke")
-            stroke = value[i];
+            this->stroke = value[i];
         else if (temp == "stroke-width")
-            stroke_width = atoi(value[i]);
+            this->stroke_width = atoi(value[i]);
         else if (temp == "stroke-opacity")
-            stroke_opacity = atof(value[i]);
+            this->stroke_opacity = atof(value[i]);
         else if (temp == "fill")
-            fill = value[i];
+            this->fill = value[i];
         else if (temp == "fill-opacity")
-            fill_opacity = atof(value[i]);
+            this->fill_opacity = atof(value[i]);
     }
 }
 ///////////////////////////////////////////////////////////////

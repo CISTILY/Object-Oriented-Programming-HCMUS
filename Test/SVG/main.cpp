@@ -41,7 +41,7 @@ int main () {
             char* attributeValue = Attr->value();
             reader.PropertiesBuilder(attributeName, attributeValue, a);
         }
-        print.printShapeInfo(nodeName, reader, a);
+        print.printShapeInfo(nodeName, reader, a, i);
         // xml_attribute<> *secondAttribute = firstAttribute->next_attribute();
         // Set breakpoint here to view value
 

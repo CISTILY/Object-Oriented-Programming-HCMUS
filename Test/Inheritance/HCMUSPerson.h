@@ -13,4 +13,4 @@ public:
 
     virtual void displayProfile ();
     void changeAddress(string);
-};
+};  

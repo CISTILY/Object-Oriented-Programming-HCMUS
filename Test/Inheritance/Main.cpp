@@ -5,18 +5,13 @@
 using namespace std;
 
 int main () {
-    // HCMUSStudent* Thanh = new HCMUSStudent (971232, "James Lee", "32 Vassar St.", 6, 2);
-    // HCMUSPerson* Phuc = new HCMUSPerson (901289, "John Doe", "500 Massachusetts Ave.");
-    // Class* c1 = new Class("MTH00053", "Toan hoc to hop");
-    // Thanh->addClassTaken(c1);
-    // Thanh->displayProfile();
-    // Phuc->displayProfile();
+    HCMUSPerson* Thanh = new HCMUSStudent (971232, "James Lee", "32 Vassar St.", 6, 2);
+    Class* c1 = new Class("MTH00053", "Toan hoc to hop");
 
-    HCMUSPerson* steve =
-    new HCMUSStudent(911923, "Steve", "99 Cambridge St.", 18, 3);
+    HCMUSStudent* Thanh2 = dynamic_cast<HCMUSStudent*> (Thanh);
+    Thanh2->addClassTaken(c1);
+    Thanh2->displayProfile();
 
-    steve->displayProfile();
-
-    delete steve;
+    delete Thanh;
     return 0;
 }
